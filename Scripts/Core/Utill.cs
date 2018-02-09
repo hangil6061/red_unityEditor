@@ -199,10 +199,10 @@ namespace Red.Utill
         public static void WritePng( Texture2D tex, string fileName, string forder = "/save/", bool isOpen = true)
         {
             string path = Application.dataPath + forder;
-            string filePath = GetUniqueFileNameWithPath(path, fileName);
+            //string filePath = GetUniqueFileNameWithPath(path, fileName);
 
             byte[] bytes = tex.EncodeToPNG();
-            File.WriteAllBytes(filePath, bytes);
+            File.WriteAllBytes(path + "/" + fileName, bytes);
         }
 
         public static string GetUniqueFileNameWithPath(string dirPath, string fileN)
