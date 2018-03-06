@@ -161,7 +161,7 @@ namespace Red.Utill
     {
         public static void WriteData(string strData, string fileName, bool isNewCreate = false, string forder = "/save/", bool isOpen = true)
         {
-            string path = Application.dataPath + forder;
+            string path = /*Application.dataPath +*/ forder;
             string filePath = path + fileName;
             if( !isNewCreate )
             {
@@ -198,7 +198,7 @@ namespace Red.Utill
 
         public static void WritePng( Texture2D tex, string fileName, string forder = "/save/", bool isOpen = true)
         {
-            string path = Application.dataPath + forder;
+            string path = /*Application.dataPath +*/ forder;
             //string filePath = GetUniqueFileNameWithPath(path, fileName);
 
             byte[] bytes = tex.EncodeToPNG();

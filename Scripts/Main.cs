@@ -21,6 +21,7 @@ public class Main : MonoBehaviour
     {
         if (scene == null) return;
         string json = LayoutToJson.ToJson(scene.transform);
+        filePath = EditorUtility.SaveFolderPanel("save", filePath, "") + "/";
         FileIO.WriteData(json, scene.name + ".json", true, filePath);
     }
 
@@ -28,14 +29,16 @@ public class Main : MonoBehaviour
     {
         if (atlas == null) return;
         string json = AtlasToJson.ToJson(atlas);
+        filePath = EditorUtility.SaveFolderPanel("save", filePath, "") + "/";
         FileIO.WriteData(json, atlas.name + ".json", true, filePath);
-        FileIO.CopyWritePng(atlas.texture as Texture2D, atlas.name + ".png");
+        FileIO.CopyWritePng(atlas.texture as Texture2D, atlas.name + ".png", filePath);
     }
 
     public void SaveAnimClip()
     {
         if (animClip == null) return;
         string json = AnimationToJson.ToJson(animClip);
+        filePath = EditorUtility.SaveFolderPanel("save", filePath, "") + "/";
         FileIO.WriteData(json, animClip.name + ".json", true, filePath);
     }
 
