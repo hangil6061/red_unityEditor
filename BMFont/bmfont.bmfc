@@ -2,10 +2,10 @@
 fileVersion=1
 
 # font settings
-fontName=¥Ÿ¿Ω_SemiBold
-fontFile=../../NanumSquareB.ttf
+fontName=Vanilla
+fontFile=../../04_Fonts/Vanilla.ttf
 charSet=0
-fontSize=16
+fontSize=60
 aa=4
 scaleH=100
 useSmoothing=1
@@ -20,18 +20,18 @@ renderFromOutline=0
 useClearType=1
 
 # character alignment
-paddingDown=1
-paddingUp=1
-paddingRight=1
-paddingLeft=1
-spacingHoriz=0
-spacingVert=0
+paddingDown=2
+paddingUp=2
+paddingRight=2
+paddingLeft=2
+spacingHoriz=4
+spacingVert=4
 useFixedHeight=0
 forceZero=0
 
 # output file
-outWidth=256
-outHeight=256
+outWidth=512
+outHeight=512
 outBitDepth=32
 fontDescFormat=1
 fourChnlPacked=0
@@ -50,6 +50,6 @@ invB=0
 outlineThickness=0
 
 # selected chars
-chars=13,32-38,40-95,97-126,8216-8217,65281-65374,65504-65507,65509-65510
+chars=32-38,40-95,97-126
 
 # imported icon images

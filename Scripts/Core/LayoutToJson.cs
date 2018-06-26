@@ -131,6 +131,18 @@ namespace Red
                         , comp.GetComponent<UIInteractive>() != null ? true : false
                         );
                 }
+                else if( image.type == Image.Type.Tiled )
+                {
+                    float rate = image.sprite.pixelsPerUnit / 100f;
+
+                    component = new UIComponentSpriteTiled(image.sprite.name
+                        , image.rectTransform.sizeDelta.x
+                        , image.rectTransform.sizeDelta.y
+                        , Utill.Utill.ColorToHex(image.color)
+                        , image.color.a
+                        , comp.GetComponent<UIInteractive>() != null ? true : false
+                        );
+                }
                 else
                 {                    
                     component = new UIComponentSprite(image.sprite.name, Utill.Utill.ColorToHex(image.color), image.color.a
@@ -306,6 +318,41 @@ namespace Red
                 , StringHelper.KeyValueTojson("alpha", alpha)
                 , StringHelper.KeyValueTojson("isInteractive", isInteractive.ToString().ToLower())
                 );           
+
+            return StringHelper.AddBrace(str);
+        }
+    }
+
+    public class UIComponentSpriteTiled : UIComponent
+    {
+        public string spriteName;
+        public float width = 0;
+        public float height = 0;
+        public string color;
+        public float alpha;
+        public bool isInteractive = false;
+
+        public UIComponentSpriteTiled(string name, float width, float height, string color, float alpha, bool isInteractive = false)
+        {
+            this.name = "tilingSprite";
+            spriteName = name;
+            this.width = width;
+            this.height = height;
+            this.color = color;
+            this.alpha = alpha;
+            this.isInteractive = isInteractive;
+        }
+
+        public override string ToJson()
+        {
+            string str = string.Format("{0},{1},{2},{3},{4},{5}"
+                , StringHelper.KeyValueTojson("spriteName", StringHelper.AddDoubleQuotation(spriteName))
+                , StringHelper.KeyValueTojson("width", width)
+                , StringHelper.KeyValueTojson("height", height)
+                , StringHelper.KeyValueTojson("color", StringHelper.AddDoubleQuotation("0x" + color))
+                , StringHelper.KeyValueTojson("alpha", alpha)
+                , StringHelper.KeyValueTojson("isInteractive", isInteractive.ToString().ToLower())
+                );
 
             return StringHelper.AddBrace(str);
         }
