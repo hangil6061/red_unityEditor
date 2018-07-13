@@ -5,7 +5,7 @@ fileVersion=1
 fontName=Vanilla
 fontFile=../../04_Fonts/Vanilla.ttf
 charSet=0
-fontSize=60
+fontSize=38
 aa=4
 scaleH=100
 useSmoothing=1
@@ -30,8 +30,8 @@ useFixedHeight=0
 forceZero=0
 
 # output file
-outWidth=512
-outHeight=512
+outWidth=256
+outHeight=256
 outBitDepth=32
 fontDescFormat=1
 fourChnlPacked=0
@@ -50,6 +50,16 @@ invB=0
 outlineThickness=0
 
 # selected chars
-chars=32-38,40-95,97-126
+chars=48-57
 
 # imported icon images
+icon="../../02_Images/num/num_time_0.png",48,0,0,0
+icon="../../02_Images/num/num_time_1.png",49,0,0,0
+icon="../../02_Images/num/num_time_2.png",50,0,0,0
+icon="../../02_Images/num/num_time_3.png",51,0,0,0
+icon="../../02_Images/num/num_time_4.png",52,0,0,0
+icon="../../02_Images/num/num_time_5.png",53,0,0,0
+icon="../../02_Images/num/num_time_6.png",54,0,0,0
+icon="../../02_Images/num/num_time_7.png",55,0,0,0
+icon="../../02_Images/num/num_time_8.png",56,0,0,0
+icon="../../02_Images/num/num_time_9.png",57,0,0,0
