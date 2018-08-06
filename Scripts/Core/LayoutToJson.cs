@@ -121,12 +121,9 @@ namespace Red
                             componentButton.width = width;
                             componentButton.height = height;
                         }
-                    }                   
-
-                    
-
+                    }   
                 }   
-                else if (image.type == Image.Type.Sliced )
+                else if (image.sprite != null && image.type == Image.Type.Sliced )
                 {
                     float rate = image.sprite.pixelsPerUnit / 100f;
                     Vector4 bor = image.sprite.border;
@@ -141,7 +138,7 @@ namespace Red
                         , comp.GetComponent<UIInteractive>() != null ? true : false
                         );
                 }
-                else if( image.type == Image.Type.Tiled )
+                else if(image.sprite != null && image.type == Image.Type.Tiled )
                 {
                     float rate = image.sprite.pixelsPerUnit / 100f;
 
@@ -155,8 +152,22 @@ namespace Red
                 }
                 else
                 {                    
-                    component = new UIComponentSprite(image.sprite.name, Utill.Utill.ColorToHex(image.color), image.color.a
+                    //component = new UIComponentSprite(image.sprite.name, Utill.Utill.ColorToHex(image.color), image.color.a
+                    //    , comp.GetComponent<UIInteractive>() != null ? true : false);
+
+                    if (image.sprite != null)
+                    {
+                        component = new UIComponentSprite(image.sprite.name, Utill.Utill.ColorToHex(image.color), image.color.a
+                           , comp.GetComponent<UIInteractive>() != null ? true : false);
+                    }
+                    else
+                    {
+                        component = new UIComponentSprite("null", Utill.Utill.ColorToHex(image.color), image.color.a
                         , comp.GetComponent<UIInteractive>() != null ? true : false);
+                        (component as UIComponentSprite).width = (tr as RectTransform).sizeDelta.x;
+                        (component as UIComponentSprite).height = (tr as RectTransform).sizeDelta.y;
+                    }
+
                 }
             }
 
