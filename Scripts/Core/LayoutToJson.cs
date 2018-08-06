@@ -41,8 +41,16 @@ namespace Red
             if (comp != null)
             {
                 SpriteRenderer c = comp as SpriteRenderer;
-                component = new UIComponentSprite(c.sprite.name, Utill.Utill.ColorToHex(c.color), c.color.a
-                    , comp.GetComponent<UIInteractive>() != null ? true : false );
+                if( c.sprite != null)
+                {
+                    component = new UIComponentSprite(c.sprite.name, Utill.Utill.ColorToHex(c.color), c.color.a
+                       , comp.GetComponent<UIInteractive>() != null ? true : false);
+                }
+                else
+                {
+                    component = new UIComponentSprite( "null", Utill.Utill.ColorToHex(c.color), c.color.a
+                    , comp.GetComponent<UIInteractive>() != null ? true : false);
+                }
             }
 
             comp = tr.GetComponent<Image>();
