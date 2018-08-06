@@ -50,6 +50,8 @@ namespace Red
                 {
                     component = new UIComponentSprite( "null", Utill.Utill.ColorToHex(c.color), c.color.a
                     , comp.GetComponent<UIInteractive>() != null ? true : false);
+                    (component as UIComponentSprite).width = (tr as RectTransform).sizeDelta.x;               
+                    (component as UIComponentSprite).height = (tr as RectTransform).sizeDelta.y;
                 }
             }
 
@@ -270,6 +272,8 @@ namespace Red
         public string color;
         public float alpha;
         public bool isInteractive;
+        public float width = 0;
+        public float height = 0;
 
         public UIComponentSprite(string name, string color, float alpha, bool isInteractive = false)
         {
@@ -282,8 +286,10 @@ namespace Red
 
         public override string ToJson()
         {
-            string str = string.Format("{0},{1},{2},{3}"
+            string str = string.Format("{0},{1},{2},{3},{4},{5}"
                 , StringHelper.KeyValueTojson("spriteName", StringHelper.AddDoubleQuotation(spriteName))
+                , StringHelper.KeyValueTojson("width", width)
+                , StringHelper.KeyValueTojson("width", height)
                 , StringHelper.KeyValueTojson("color", StringHelper.AddDoubleQuotation("0x" + color))
                 , StringHelper.KeyValueTojson("alpha", alpha)
                 , StringHelper.KeyValueTojson("isInteractive", isInteractive.ToString().ToLower())
