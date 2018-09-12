@@ -182,9 +182,13 @@ namespace Red
                     width = (int)text.rectTransform.sizeDelta.x;
                 }
 
+                bool isNormal = tr.GetComponent<UINormalFont>() == null ? false : true;
+
                 string align = text.alignment.ToString().Replace("Upper", "").Replace("Middle", "").Replace("Lower", "");
                 component = new UIComponentText(text.font.name, text.text.Replace("\n", "\\n").Replace("\r", ""), text.fontSize
-                    , Utill.Utill.ColorToHex( text.color ), align.ToLower(), width);
+                    , Utill.Utill.ColorToHex( text.color ), align.ToLower(), width, isNormal);
+
+                
             }
 
             comp = tr.GetComponent<UIInputField>();
@@ -300,7 +304,7 @@ namespace Red
             string str = string.Format("{0},{1},{2},{3},{4},{5}"
                 , StringHelper.KeyValueTojson("spriteName", StringHelper.AddDoubleQuotation(spriteName))
                 , StringHelper.KeyValueTojson("width", width)
-                , StringHelper.KeyValueTojson("width", height)
+                , StringHelper.KeyValueTojson("height", height)
                 , StringHelper.KeyValueTojson("color", StringHelper.AddDoubleQuotation("0x" + color))
                 , StringHelper.KeyValueTojson("alpha", alpha)
                 , StringHelper.KeyValueTojson("isInteractive", isInteractive.ToString().ToLower())
@@ -441,8 +445,9 @@ namespace Red
         public string color;
         public int width = 0;
         public string align = "left";
+        public bool isNormal = false;
 
-        public UIComponentText(string font, string text, int size, string color, string align = "left", int width = 0)
+        public UIComponentText(string font, string text, int size, string color, string align = "left", int width = 0, bool normal = false)
         {
             this.name = "text";
             this.font = font;
@@ -451,6 +456,7 @@ namespace Red
             this.color = color;
             this.align = align;
             this.width = width;
+            this.isNormal = normal;
         }
 
         public override string ToJson()
@@ -462,7 +468,7 @@ namespace Red
                 , StringHelper.KeyValueTojson("align", StringHelper.AddDoubleQuotation(align))
                 , StringHelper.KeyValueTojson("color", StringHelper.AddDoubleQuotation("0x" + color)));      
             str += "," + StringHelper.KeyValueTojson("width", width);
-
+            str += "," + StringHelper.KeyValueTojson("isNormal", isNormal.ToString().ToLower());
             return StringHelper.AddBrace(str);                
         }
     }

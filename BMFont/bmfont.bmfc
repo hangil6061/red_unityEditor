@@ -50,6 +50,18 @@ invB=0
 outlineThickness=0
 
 # selected chars
-chars=48-57,65-90,97-122
+chars=48-57,77,109
 
 # imported icon images
+icon="../../03_images/font2/d_0.png",48,0,0,0
+icon="../../03_images/font2/d_1.png",49,0,0,0
+icon="../../03_images/font2/d_2.png",50,0,0,0
+icon="../../03_images/font2/d_3.png",51,0,0,0
+icon="../../03_images/font2/d_4.png",52,0,0,0
+icon="../../03_images/font2/d_5.png",53,0,0,0
+icon="../../03_images/font2/d_6.png",54,0,0,0
+icon="../../03_images/font2/d_7.png",55,0,0,0
+icon="../../03_images/font2/d_8.png",56,0,0,0
+icon="../../03_images/font2/d_9.png",57,0,0,0
+icon="../../03_images/font2/d_m.png",109,0,0,0
+icon="../../03_images/font2/d_m1.png",77,0,0,0
