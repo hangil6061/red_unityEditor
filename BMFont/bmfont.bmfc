@@ -5,7 +5,7 @@ fileVersion=1
 fontName=Adumu
 fontFile=../../04_Fonts/Adumu.ttf
 charSet=0
-fontSize=45
+fontSize=90
 aa=4
 scaleH=100
 useSmoothing=1
@@ -30,8 +30,8 @@ useFixedHeight=0
 forceZero=0
 
 # output file
-outWidth=256
-outHeight=256
+outWidth=512
+outHeight=512
 outBitDepth=32
 fontDescFormat=1
 fourChnlPacked=0
@@ -50,6 +50,6 @@ invB=0
 outlineThickness=0
 
 # selected chars
-chars=44,46,48-57,65-90,97-122
+chars=32,44,46,48-57,65-90,97-122
 
 # imported icon images
