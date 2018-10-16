@@ -180,6 +180,22 @@ namespace Red.Utill
             }
         }
 
+        public static string ReadData(string fileName, string forder = "/save/")
+        {
+            string path = /*Application.dataPath +*/ forder;
+            string filePath = path + fileName;
+
+            if (!File.Exists(filePath)) return null;
+
+            FileStream f = new FileStream(filePath, FileMode.Open, FileAccess.Read);           
+            StreamReader reader = new StreamReader(f, System.Text.Encoding.UTF8);
+
+            string str = reader.ReadToEnd();
+            reader.Close();
+
+            return str;
+        }
+
         public static void CopyWritePng(Texture2D tex, string fileName, string forder = "/save/", bool isOpen = true)
         {
             if (tex == null) return;
